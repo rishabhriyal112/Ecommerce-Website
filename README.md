@@ -4,7 +4,8 @@
 
 ## Description
 
-Cosmos Store is a modern, feature-rich ecommerce platform built with React and Vite. It offers a seamless shopping experience with an intuitive interface, comprehensive product catalog, and smooth checkout process. The application is designed to be responsive, ensuring a consistent experience across all devices.
+Cosmos Store is a modern, feature-rich ecommerce platform built with React and Vite. It offers a seamless shopping experi
+ence with an intuitive interface, comprehensive product catalog, and smooth checkout process. The application is designed to be responsive, ensuring a consistent experience across all devices.
 
 ## Features
 
