@@ -1,6 +1,6 @@
 # Cosmos Store
 
-![Cosmos Store Demo](/demo.png)
+![Cosmos Store Demo](./public/demo.png)
 
 ## Description
 
