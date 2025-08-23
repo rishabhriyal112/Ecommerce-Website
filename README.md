@@ -2,6 +2,13 @@
 
 ![Cosmos Store Demo](./public/demo.png)
 
+##🚀 The website is live at:
+
+ ``` 
+ https://cosmos-ecommerce-store.vercel.app/
+```
+
+
 ## Description
 
 Cosmos Store is a modern, feature-rich ecommerce platform built with React and Vite. It offers a seamless shopping experi
@@ -17,10 +24,7 @@ ence with an intuitive interface, comprehensive product catalog, and smooth chec
 - **User Authentication** - Secure login and registration system
 - **Wishlist** - Save favorite products for future reference
 - **Responsive Design** - Optimized for mobile, tablet, and desktop devices
-
-## Live Demo
-
-Experience the Cosmos Store live: [https://cosmos-ecommerce-store.vercel.app/](https://cosmos-ecommerce-store.vercel.app/)
+  
 
 ## Installation Instructions
 
