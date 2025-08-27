@@ -34,35 +34,8 @@ const Hero = () => {
     <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen flex items-center">
       <div className="w-full px-2 sm:px-6 lg:px-8 py-12 md:py-16 sm:container sm:mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-          {/* Left content */}
-          <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
-              Elevate Your <span className="text-blue-600">Style</span> With Premium Quality
-            </h1>
-            
-            <p className="text-base sm:text-lg text-gray-600 max-w-lg mx-auto lg:mx-0">
-              Discover our curated collection of high-quality products that blend style, comfort, and innovation.
-            </p>
-            
-            <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link 
-                to="/products" 
-                className="px-6 sm:px-8 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300 text-center"
-              >
-                Shop Now
-              </Link>
-              
-              <Link 
-                to="/categories" 
-                className="px-6 sm:px-8 py-3 bg-white text-blue-600 font-medium rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all duration-300 flex items-center justify-center"
-              >
-                Explore <FaArrowRight className="ml-2 text-sm" />
-              </Link>
-            </div>
-          </div>
-          
-          {/* Right image with floating elements */}
-          <div className="w-full lg:w-1/2 relative mt-8 lg:mt-0">
+          {/* Image first on mobile, second on desktop */}
+          <div className="w-full lg:w-1/2 relative order-1 lg:order-2">
             {/* Decorative elements */}
             <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-16 h-16 sm:w-24 sm:h-24 bg-blue-100 rounded-full opacity-70 blur-xl"></div>
             <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 w-20 h-20 sm:w-32 sm:h-32 bg-purple-100 rounded-full opacity-70 blur-xl"></div>
@@ -107,6 +80,33 @@ const Hero = () => {
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
+            </div>
+          </div>
+          
+          {/* Text content second on mobile, first on desktop */}
+          <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left order-2 lg:order-1">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
+              Elevate Your <span className="text-blue-600">Style</span> With Premium Quality
+            </h1>
+            
+            <p className="text-base sm:text-lg text-gray-600 max-w-lg mx-auto lg:mx-0">
+              Discover our curated collection of high-quality products that blend style, comfort, and innovation.
+            </p>
+            
+            <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Link 
+                to="/products" 
+                className="px-6 sm:px-8 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300 text-center"
+              >
+                Shop Now
+              </Link>
+              
+              <Link 
+                to="/categories" 
+                className="px-6 sm:px-8 py-3 bg-white text-blue-600 font-medium rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all duration-300 flex items-center justify-center"
+              >
+                Explore <FaArrowRight className="ml-2 text-sm" />
+              </Link>
             </div>
           </div>
         </div>
