@@ -24,7 +24,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img src="/logo.jpg" alt="CosmosStore" className="h-8 md:h-10 mr-2" />
-            <span className="hidden sm:block text-lg md:text-xl font-bold text-gray-800">CosmosStore</span>
+            <span className="text-lg md:text-xl font-bold text-gray-800">CosmosStore</span>
           </Link>
           
           {/* Mobile menu button */}
