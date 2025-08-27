@@ -40,14 +40,15 @@ const Cart = () => {
   
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="w-full px-2 sm:px-6 lg:px-8 py-8 sm:max-w-7xl sm:mx-auto">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">Your Shopping Cart</h1>
         
         {cart.length > 0 ? (
           <div className="flex flex-col lg:flex-row lg:space-x-8">
             {/* Cart Items */}
             <div className="lg:w-2/3">
-              <div className="bg-white rounded-lg shadow overflow-hidden mb-6">
+              {/* Desktop Table View */}
+              <div className="hidden md:block bg-white rounded-lg shadow overflow-hidden mb-6">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
@@ -151,6 +152,90 @@ const Cart = () => {
                     })}
                   </tbody>
                 </table>
+              </div>
+              
+              {/* Mobile Card View */}
+              <div className="md:hidden space-y-4 mb-6">
+                {cart.map(item => {
+                  const itemPrice = item.discount > 0 
+                    ? item.price - (item.price * item.discount / 100) 
+                    : item.price;
+                  const itemTotal = itemPrice * item.quantity;
+                  
+                  return (
+                    <div key={item.id} className="bg-white rounded-lg shadow p-4">
+                      <div className="flex items-start space-x-4">
+                        <img 
+                          src={item.image} 
+                          alt={item.name} 
+                          className="h-16 w-16 object-cover rounded flex-shrink-0"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <Link 
+                            to={`/products/${item.id}`}
+                            className="text-sm font-medium text-gray-900 hover:text-blue-600 block truncate"
+                          >
+                            {item.name}
+                          </Link>
+                          
+                          <div className="mt-2 flex items-center justify-between">
+                            <div>
+                              {item.discount > 0 ? (
+                                <div>
+                                  <span className="text-sm font-medium text-gray-900">
+                                    ₹{itemPrice.toFixed(0)}
+                                  </span>
+                                  <span className="block text-xs text-gray-500 line-through">
+                                    ₹{item.price.toFixed(0)}
+                                  </span>
+                                </div>
+                              ) : (
+                                <span className="text-sm font-medium text-gray-900">
+                                  ₹{item.price.toFixed(0)}
+                                </span>
+                              )}
+                            </div>
+                            
+                            <button 
+                              onClick={() => handleRemoveItem(item.id)}
+                              className="text-red-600 hover:text-red-900 p-1"
+                            >
+                              <FaTrash className="text-sm" />
+                            </button>
+                          </div>
+                          
+                          <div className="mt-3 flex items-center justify-between">
+                            <div className="flex items-center">
+                              <button 
+                                onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                                className="px-2 py-1 border border-gray-300 rounded-l-md bg-gray-50 text-gray-600 hover:bg-gray-100 text-sm"
+                              >
+                                -
+                              </button>
+                              <input
+                                type="number"
+                                min="1"
+                                value={item.quantity}
+                                onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                                className="w-12 border-t border-b border-gray-300 text-center focus:outline-none focus:ring-0 focus:border-gray-300 text-sm"
+                              />
+                              <button 
+                                onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                                className="px-2 py-1 border border-gray-300 rounded-r-md bg-gray-50 text-gray-600 hover:bg-gray-100 text-sm"
+                              >
+                                +
+                              </button>
+                            </div>
+                            
+                            <div className="text-sm font-medium text-gray-900">
+                              Total: ₹{itemTotal.toFixed(0)}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
               
               <div className="flex justify-between items-center">

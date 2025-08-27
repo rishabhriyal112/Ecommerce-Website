@@ -31,10 +31,10 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 max-w-md">
+    <div className="w-full px-2 sm:px-6 py-8 sm:max-w-md sm:mx-auto">
       <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
       
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
+      <form onSubmit={handleSubmit} className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
         {error && (
           <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">
             {error}

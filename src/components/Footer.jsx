@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="w-full px-2 sm:px-6 lg:px-8 py-12 sm:py-16 sm:max-w-7xl sm:mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           <div>
             <h3 className="text-xl font-bold mb-6 text-white">CosmosStore</h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -52,15 +52,15 @@ const Footer = () => {
             <p className="text-gray-300 mb-6 leading-relaxed">
               Subscribe to our newsletter for updates on new products and special offers.
             </p>
-            <form className="flex">
+            <form className="flex flex-col sm:flex-row">
               <input
                 type="email"
                 placeholder="Your email"
-                className="px-4 py-3 w-full bg-gray-800 border border-gray-700 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-300"
+                className="px-4 py-3 w-full bg-gray-800 border border-gray-700 rounded-md sm:rounded-l-md sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-300 mb-2 sm:mb-0"
               />
               <button
                 type="submit"
-                className="bg-blue-600 text-white px-4 py-3 rounded-r-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-300"
+                className="bg-blue-600 text-white px-4 py-3 rounded-md sm:rounded-l-none sm:rounded-r-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-300 whitespace-nowrap"
               >
                 Subscribe
               </button>
@@ -68,11 +68,11 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
+        <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400 text-sm text-center md:text-left">
             &copy; {new Date().getFullYear()} CosmosStore. All rights reserved.
           </p>
-          <div className="flex space-x-8 mt-6 md:mt-0">
+          <div className="flex flex-wrap justify-center space-x-4 sm:space-x-8 mt-4 md:mt-0">
             <Link to="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">Privacy Policy</Link>
             <Link to="/terms" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">Terms of Service</Link>
             <Link to="/cookies" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">Cookie Policy</Link>
