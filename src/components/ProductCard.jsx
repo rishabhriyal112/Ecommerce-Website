@@ -32,13 +32,13 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 w-full">
       <Link to={`/products/${id}`}>
         <div className="relative">
           <img 
             src={image} 
             alt={name} 
-            className="w-full h-64 object-cover"
+            className="w-full h-48 sm:h-56 md:h-64 object-cover"
             onError={(e) => {
               e.target.onerror = null;
               e.target.src = 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80';
@@ -52,42 +52,44 @@ const ProductCard = ({ product }) => {
         </div>
       </Link>
       
-      <div className="p-4">
+      <div className="p-3 sm:p-4">
         <Link to={`/products/${id}`}>
-          <h3 className="text-lg font-medium text-gray-900 mb-1 hover:text-blue-500">{name}</h3>
+          <h3 className="text-sm sm:text-base lg:text-lg font-medium text-gray-900 mb-1 hover:text-blue-500 line-clamp-2">{name}</h3>
         </Link>
         
         <div className="flex items-center mb-2">
-          {renderStars(rating)}
-          <span className="text-gray-500 text-sm ml-1">({rating})</span>
+          <div className="flex text-xs sm:text-sm">
+            {renderStars(rating)}
+          </div>
+          <span className="text-gray-500 text-xs sm:text-sm ml-1">({rating})</span>
         </div>
         
         <div className="flex items-center justify-between">
-          <div>
+          <div className="flex-1">
             {discount > 0 ? (
-              <div className="flex items-center">
-                <span className="text-lg font-bold text-gray-900">
+              <div className="flex flex-col sm:flex-row sm:items-center">
+                <span className="text-base sm:text-lg font-bold text-gray-900">
                   ₹{(price - (price * discount / 100)).toFixed(0)}
                 </span>
-                <span className="text-sm text-gray-500 line-through ml-2">
+                <span className="text-xs sm:text-sm text-gray-500 line-through sm:ml-2">
                   ₹{price.toFixed(0)}
                 </span>
               </div>
             ) : (
-              <span className="text-lg font-bold text-gray-900">₹{price.toFixed(0)}</span>
+              <span className="text-base sm:text-lg font-bold text-gray-900">₹{price.toFixed(0)}</span>
             )}
           </div>
           
-          <div className="flex space-x-2">
+          <div className="flex space-x-1 sm:space-x-2">
             <button 
               onClick={() => addToCart(id)} 
-              className="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded-full text-sm"
+              className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full text-xs sm:text-sm transition-colors duration-200"
             >
               <FaShoppingCart />
             </button>
             <button 
               onClick={() => addToWishlist(id)}
-              className="text-gray-500 hover:text-red-500"
+              className="text-gray-500 hover:text-red-500 p-2 transition-colors duration-200"
             >
               <FaHeart />
             </button>

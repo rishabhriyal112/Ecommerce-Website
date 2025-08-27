@@ -96,7 +96,7 @@ const Products = () => {
   
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="w-full px-2 sm:px-6 lg:px-8 py-8 sm:max-w-7xl sm:mx-auto">
         <h1 className="text-3xl font-bold text-gray-900 mb-6">All Products</h1>
         
         {/* Mobile filter button */}
@@ -117,9 +117,9 @@ const Products = () => {
           </button>
         </div>
         
-        <div className="flex flex-col lg:flex-row">
+        <div className="flex flex-col lg:flex-row gap-6">
           {/* Filters - Desktop always visible, mobile conditional */}
-          <div className={`w-full lg:w-1/4 lg:pr-8 ${isFilterOpen ? 'block' : 'hidden lg:block'}`}>
+          <div className={`w-full lg:w-1/4 ${isFilterOpen ? 'block' : 'hidden lg:block'}`}>
             <div className="bg-gray-50 p-4 rounded-lg sticky top-4">
               <h2 className="text-lg font-medium text-gray-900 mb-4">Filters</h2>
               
@@ -167,13 +167,16 @@ const Products = () => {
           </div>
           
           {/* Product Grid */}
-          <div className="w-full lg:w-3/4 mt-6 lg:mt-0">
+          <div className="w-full lg:w-3/4">
             {/* Sort dropdown */}
-            <div className="flex justify-end mb-4">
+            <div className="flex justify-between items-center mb-4">
+              <p className="text-sm text-gray-600">
+                Showing {products.length} products
+              </p>
               <select
                 value={sortBy}
                 onChange={handleSortChange}
-                className="block w-48 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+                className="block w-40 sm:w-48 pl-3 pr-8 py-2 text-sm border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-md"
               >
                 <option value="featured">Featured</option>
                 <option value="price-low">Price: Low to High</option>
@@ -184,7 +187,7 @@ const Products = () => {
             
             {/* Products */}
             {products.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
                 {products.map(product => (
                   <ProductCard key={product.id} product={product} />
                 ))}
