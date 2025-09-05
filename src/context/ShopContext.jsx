@@ -71,6 +71,11 @@ export const ShopProvider = ({ children }) => {
     setCart(prevCart => prevCart.filter(item => item.id !== productId));
   };
 
+  // Clear entire cart
+  const clearCart = () => {
+    setCart([]);
+  };
+
   // Update cart quantity
   const updateCartQuantity = (productId, quantity) => {
     if (quantity < 1) return;
@@ -158,6 +163,7 @@ export const ShopProvider = ({ children }) => {
     addToCart,
     removeFromCart,
     updateCartQuantity,
+    clearCart,
     addToWishlist,
     removeFromWishlist,
     login,

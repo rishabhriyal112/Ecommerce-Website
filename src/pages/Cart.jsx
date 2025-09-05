@@ -317,9 +317,12 @@ const Cart = () => {
                 </div>
                 
                 {/* Checkout Button */}
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md mt-6 font-medium">
+                <Link 
+                  to="/checkout"
+                  className="block w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md mt-6 font-medium text-center"
+                >
                   Proceed to Checkout
-                </button>
+                </Link>
               </div>
             </div>
           </div>

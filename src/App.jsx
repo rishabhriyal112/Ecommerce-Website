@@ -22,6 +22,8 @@ import Cookies from './pages/Cookies';
 import FeaturedProducts from './pages/FeaturedProducts';
 import NewArrivals from './pages/NewArrivals';
 import SaleProducts from './pages/SaleProducts';
+import Checkout from './pages/Checkout';
+import OrderSuccess from './pages/OrderSuccess';
 
 function App() {
   return (
@@ -50,6 +52,8 @@ function App() {
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/cookies" element={<Cookies />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/order-success" element={<OrderSuccess />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
